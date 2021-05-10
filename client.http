@@ -1,0 +1,9 @@
+GET http://api.coincap.io/v2/assets
+
+
+###
+# Daily History
+GET  http://api.coincap.io/v2/assets/bitcoin/history/?interval=d1
+
+### Markets
+GET http://api.coincap.io/v2/assets/bitcoin/markets
