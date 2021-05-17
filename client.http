@@ -1,4 +1,4 @@
-GET http://api.coincap.io/v2/assets
+GET http://api.coincap.io/v2/assets/bitcoin
 
 
 ###
