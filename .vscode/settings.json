@@ -1,0 +1,11 @@
+{
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#0ba410",
+    "titleBar.activeBackground": "#0ba410",
+    "titleBar.inactiveBackground": "#0ba410",
+    "statusBar.foreground": "#000",
+    "titleBar.inactiveForeground": "#000",
+    "titleBar.activeForeground": "#000",
+  },
+  "window.title": "COINS FRONTEND"
+}

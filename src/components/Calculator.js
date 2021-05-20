@@ -7,7 +7,7 @@ function Calculator() {
   const [searchTerm, setSearchTerm] = React.useState('')
   const [budget, setBudget] = React.useState(null)
   const [selectedCoin, setSelectedCoin] = React.useState(null)
-  const [coinName, setCoinName] = React.useState('')
+  const [ setCoinName] = React.useState('')
   const [finalAmount, setFinalAmount] = React.useState(null)
 
   React.useEffect(() => {

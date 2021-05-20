@@ -15,7 +15,9 @@ function Coins() {
     const interval = setInterval(() => {
       const getData = async () => {
         try {
-          const response = await axios.get('https://api.coincap.io/v2/assets/')
+          // const response = await axios.get('https://api.coincap.io/v2/assets/')
+          const response = await axios.get('/api/coins')
+          console.log(response.data)
           setAllCoins(response.data)
         } catch (err) {
           console.log(err)
@@ -35,7 +37,7 @@ function Coins() {
     setSearchTerm('')
   }
 
-  const filteredCoins = coins?.data.filter((coin) => {
+  const filteredCoins = coins?.filter((coin) => { // ? was -  coins.data?.filter((coin) =>{
     return (
       coin.name.toLowerCase().includes(searchTerm) ||
       coin.rank.includes(searchTerm) ||
@@ -82,7 +84,7 @@ function Coins() {
               filteredCoins.map((coin) => (
                 <div
                   className="column is-one-quarter-desktop is-one-third-tablet"
-                  key={coin.id}
+                  key={coin._id}
                 >
                   <div className="card">
                     <Link to={`coins/${coin.id}`}>
