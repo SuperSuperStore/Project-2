@@ -400,3 +400,18 @@ There are currently are no known bugs.
 ### Key Learnings 
 
 The project was a great way to get really familiar with APIs and their documentation, as the prep required us to go through quite a few possible options. It was also very useful to solidify React processes of fetching and mapping over data.
+
+#### Docker
+
+To run the docker file run:
+
+``` bash
+╰─ docker run \
+    -it \
+    --rm \
+    -v ${PWD}:/app \
+    -v /app/node_modules \
+    -p 3001:3000 \
+    -e CHOKIDAR_USEPOLLING=true \
+    nonovium/crystal-crypto:1.0.2
+```
