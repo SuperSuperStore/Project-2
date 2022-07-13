@@ -7,3 +7,12 @@ GET  http://api.coincap.io/v2/assets/bitcoin/history/?interval=d1
 
 ### Markets
 GET http://api.coincap.io/v2/assets/bitcoin/markets
+###
+GET http://api.coincap.io/v2/assets/
+
+###
+
+GET http://api.coincap.io/v2/exchanges
+
+###
+GET https://images.coinviewer.io/currencies/64x64/bitcoin.png  

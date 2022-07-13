@@ -17,12 +17,14 @@ function CoinMarkets() {
           `https://api.coincap.io/v2/assets/${coinId}/markets?limit=10`
         )
         setMarkets(response.data)
+        console.log(markets)
       } catch (err) {
         console.log(err)
       }
     }
     getData()
-  }, [coinId, markets])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   const toFloat = (num, places) => Number.parseFloat(num).toFixed(places)
 
   return (
@@ -32,28 +34,37 @@ function CoinMarkets() {
           <div className="box">
             <table className="table">
               <thead>
-                <th>Exchange</th>
-                <th>
-                  <abbr title="The quoted price in USD">Quote</abbr>
-                </th>
-                <th>Base Symbol</th>
-                <th>Quote Symbol</th>
-                <th>Market Type</th>
-
-                <th>Base Market</th>
+                <tr>
+                  <th>
+                  Exchange
+                  </th><th>
+                    <abbr title="The quoted price in USD">Quote</abbr>
+                  </th>
+                  <th>Base Symbol</th>
+                  <th>
+                    Quote Symbol
+                  </th>
+                  <th>
+                    Market Type
+                  </th>
+                  
+                  <th>
+                    Base Market
+                  </th>
+                </tr>
               </thead>
               {markets ? (
                 markets.data.map((market) => (
-                  <tr
-                    key={`key-${market.baseId}-${market.exchangeId}-${market.quoteSymbol}`}
-                  >
+                  <tr key={`key-${market.baseId}-${market.exchangeId}-${market.quoteSymbol}`}>
                     <th>{market.exchangeId}</th>
                     <td>{toFloat(market.priceUsd, 2)}</td>
                     <td>{market.baseSymbol}</td>
                     <td>{market.quoteSymbol}</td>
                     <td>{market.baseId}</td>
-
+                    
                     <td>{market.quoteId}</td>
+                    
+                    
                   </tr>
                 ))
               ) : (
