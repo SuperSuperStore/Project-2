@@ -15,12 +15,12 @@ function Coins() {
     const interval = setInterval(() => {
       const getData = async () => {
         try {
-          // const response = await axios.get('https://api.coincap.io/v2/assets/')
-          const response = await axios.get('/api/coins')
+          const response = await axios.get('https://api.coincap.io/v2/assets/')
+          // const response = await axios.get('/api/coins')
           console.log(response.data)
           setAllCoins(response.data)
         } catch (err) {
-          console.log(err)
+          console.log('ERROR:>>', err)
           history.push('./error')
         }
       }
