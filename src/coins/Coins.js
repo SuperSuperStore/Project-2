@@ -1,9 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
-// ! Added preloader
 import Preloader from '../preloader/Preloader'
-
 
 function Coins() {
   const history = useHistory()
@@ -11,23 +9,21 @@ function Coins() {
   const [searchTerm, setSearchTerm] = React.useState('')
 
   React.useEffect(() => {
-    // ! Added interval
     const interval = setInterval(() => {
       const getData = async () => {
         try {
           const response = await axios.get('https://api.coincap.io/v2/assets/')
-          // const response = await axios.get('/api/coins')
-          console.log(response.data)
           setAllCoins(response.data)
         } catch (err) {
-          console.log('ERROR:>>', err)
+          console.log(err)
           history.push('./error')
         }
       }
       getData()
-    }, 15000)
+    }, 5000)
     return () => clearInterval(interval)
-  }, [coins, history])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coins])
 
   const handleInput = (e) => {
     setSearchTerm(e.target.value)
@@ -37,21 +33,18 @@ function Coins() {
     setSearchTerm('')
   }
 
-  const filteredCoins = coins?.filter((coin) => { // ? was -  coins.data?.filter((coin) =>{
+  const filteredCoins = coins?.data.filter((coin) => {
     return (
       coin.name.toLowerCase().includes(searchTerm) ||
       coin.rank.includes(searchTerm) ||
       coin.symbol.toLowerCase().includes(searchTerm)
     )
   })
-  // ! Added Float Function
   const toFloat = (num, places) => Number.parseFloat(num).toFixed(places)
 
   console.log(searchTerm)
 
   return (
-    // ! Added hero, placed search form into hero
-    // ! Added css styling to search form
     <>
       <section className="hero is-primary">
         <div className="hero-body">
@@ -80,11 +73,10 @@ function Coins() {
         <div className="section">
           <div className="columns is-multiline">
             {filteredCoins ? (
-              console.log(coins),
               filteredCoins.map((coin) => (
                 <div
                   className="column is-one-quarter-desktop is-one-third-tablet"
-                  key={coin._id}
+                  key={coin.id}
                 >
                   <div className="card">
                     <Link to={`coins/${coin.id}`}>
@@ -95,12 +87,12 @@ function Coins() {
                         </div>
                       </div>
                       <div className="card-content is-flex is-horizontal-center">
-                        <img // ! Added new img url
+                        <img 
                           src={`https://assets.coincap.io/assets/icons/${coin.symbol.toLowerCase()}@2x.png`}
                         />
                       </div>
                       <div className="card-footer">
-                        <span // ! Added Footer Items
+                        <span 
                           className="card-footer-item"
                         >
                           Rank: # {coin.rank}

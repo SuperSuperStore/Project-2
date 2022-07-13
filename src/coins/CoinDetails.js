@@ -18,15 +18,16 @@ function CoinDetails() {
             `https://api.coincap.io/v2/assets/${coinId}`
           )
           setCoin(response.data)
-          
+          console.log(coin)
         } catch (err) {
           history.push('./error')
         }
       }
       getData()
-    }, 15000)
+    }, 5000)
     return () => clearInterval(interval)
-  }, [coinId, coin, history])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coinId, coin])
 
   const toFloat = (num, places) => Number.parseFloat(num).toFixed(places)
 

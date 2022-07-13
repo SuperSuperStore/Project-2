@@ -7,7 +7,7 @@ function Calculator() {
   const [searchTerm, setSearchTerm] = React.useState('')
   const [budget, setBudget] = React.useState(null)
   const [selectedCoin, setSelectedCoin] = React.useState(null)
-  const [ setCoinName] = React.useState('')
+  const [coinName, setCoinName] = React.useState('')
   const [finalAmount, setFinalAmount] = React.useState(null)
 
   React.useEffect(() => {
@@ -20,12 +20,12 @@ function Calculator() {
       }
     }
     getData()
-  }, [coins])
+  }, [])
 
   const handleDropdown = (e) => {
     setSelectedCoin(e.target.value)
     setCoinName(e.target.id)
-    console.log(selectedCoin, e, e.target.value)
+    console.log(selectedCoin, e, e.target.value, coinName)
   }
 
   const handleClear = () => {
@@ -47,10 +47,10 @@ function Calculator() {
   }
 
   const handleCalculate = () => {
-    Calculator()
+    makeCalculation()
   }
 
-  function Calculator() {
+  function makeCalculation() {
     if (budget && selectedCoin) {
       const canGet = Number(budget) / Number(selectedCoin)
       setFinalAmount(canGet)
