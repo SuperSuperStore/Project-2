@@ -12,8 +12,8 @@ For the best user experience I would recommend to look at both the coin index an
 
 
 ## Authors
+- [Kat Hackethal](https://github.com/khackethal)
 - [Steven Saunders](https://github.com/SuperSuperStore)
-- Kat Hackethal
 
 
 ## Table of Contents
