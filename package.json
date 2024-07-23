@@ -5,7 +5,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bulma": "^0.9.2",
-    "cryptocurrency-icons": "^0.17.1",
+    "cryptocurrency-icons": "^0.18.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "react": "^17.0.2",
